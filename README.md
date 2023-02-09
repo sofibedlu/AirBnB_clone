@@ -1,6 +1,6 @@
 # *Project Name*: AirBnB PROJECT
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--*PROJECT DESCRIPTION*: The AirBnB project is project to clone of the official AirBnB web application. The goal of the project is to deploy a simple copy of the AirBnB website. This copy of the website will implement some of the fundamental features of the AirBnb official website covered in the higher level programming track. The implementation of the website will be in four(4) stages.
+- *PROJECT DESCRIPTION* : The AirBnB project is project to clone of the official AirBnB web application. The goal of the project is to deploy a simple copy of the AirBnB website. This copy of the website will implement some of the fundamental features of the AirBnb official website covered in the higher level programming track. The implementation of the website will be in four(4) stages.
 	1.A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging)
 	2. A website (the front-end) that shows the final product to everybody: static and dynamic
 	3. A database or files that store data (data = objects)
