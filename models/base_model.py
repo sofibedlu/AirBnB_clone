@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-
-"""define the BaseModel class
-    for each instances create using Base class BaseModel will
-    automatically assigned to unique uuid and the time when the
-    instance created...and also provide different function to
-    manipulate the instances
+"""
+define the BaseModel class
 """
 import uuid
 from datetime import datetime
