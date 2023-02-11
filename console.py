@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
-"""define the class HBNBCommand"""
+"""define the class HBNBCommand
+    this class inherit Cmd class from cmd module wich facilitates
+    the design of custome command line interpretor by providing
+    different builtin function and attributes
+"""
 
 import cmd
 from models import storage
