@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """define the class HBNBCommand"""
 
 import cmd
