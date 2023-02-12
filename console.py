@@ -6,6 +6,7 @@
     different builtin function and attributes
 """
 
+import re
 import cmd
 from models import storage
 from models.base_model import BaseModel
@@ -44,12 +45,19 @@ class HBNBCommand(cmd.Cmd):
     def default(self, line):
         """update the default method
         """
+
         if '.' in line:
             class_name, command = line.split('.')
             if command == "all()":
                 self.do_all(class_name)
             elif command == "count()":
                 print(self.do_count(class_name))
+            elif bool(re.match(r"\w+\.show\([\"'][\w-]+[\"']\)", line)):
+                arg = line.split('.')
+                class_name = arg[0]
+                uid = arg[1].split('"')[1]
+                name_id = "{} {}".format(class_name, uid)
+                self.do_show(name_id)
 
     def do_create(self, line):
         """create new instance of BaseModel, saves it(to the JSON file)
