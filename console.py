@@ -41,6 +41,14 @@ class HBNBCommand(cmd.Cmd):
         """don't do anything when its emptyline"""
         pass
 
+    def default(self, line):
+        """update the default method
+        """
+        if '.' in line:
+            class_name, command = line.split('.')
+            if command == "all()":
+                self.do_all(class_name)
+
     def do_create(self, line):
         """create new instance of BaseModel, saves it(to the JSON file)
             and prints the id
