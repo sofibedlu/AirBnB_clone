@@ -48,6 +48,8 @@ class HBNBCommand(cmd.Cmd):
             class_name, command = line.split('.')
             if command == "all()":
                 self.do_all(class_name)
+            elif command == "count()":
+                print(self.do_count(class_name))
 
     def do_create(self, line):
         """create new instance of BaseModel, saves it(to the JSON file)
@@ -125,6 +127,21 @@ class HBNBCommand(cmd.Cmd):
             for key, value in objs.items():
                 list_objs.append(str(value))
             print(list_objs)
+
+    def do_count(self, line):
+        """
+        return nuber of instances of a class
+        """
+        list_objs = []
+        objs = storage.all()
+        if line:
+            if not (line in HBNBCommand.list_of_classes()):
+                return("** class doesn't exist **")
+            else:
+                for key, value in objs.items():
+                    if line == value.__class__.__name__:
+                        list_objs.append(str(value))
+            return(len(list_objs))
 
     def do_update(self, line):
         """Updates an instance based on the class name and id by adding or
