@@ -7,7 +7,7 @@ class State(BaseModel):
     """ represents State instances """
 
     name = ''
-    
+
     def __init__(self, *args, **kwargs):
         """ initialize the the State instances with the Base class """
         super().__init__(*args, **kwargs)

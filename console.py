@@ -58,6 +58,12 @@ class HBNBCommand(cmd.Cmd):
                 uid = arg[1].split('"')[1]
                 name_id = "{} {}".format(class_name, uid)
                 self.do_show(name_id)
+            elif bool(re.match(r"\w+\.destroy\(\"[\w-]+\"\)", line)):
+                arg = line.split('.')
+                class_name = arg[0]
+                uid = arg[1].split('"')[1]
+                name_id = "{} {}".format(class_name, uid)
+                self.do_destroy(name_id)
 
     def do_create(self, line):
         """create new instance of BaseModel, saves it(to the JSON file)
