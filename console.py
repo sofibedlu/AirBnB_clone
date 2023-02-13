@@ -52,18 +52,27 @@ class HBNBCommand(cmd.Cmd):
                 self.do_all(class_name)
             elif command == "count()":
                 print(self.do_count(class_name))
-            elif bool(re.match(r"\w+\.show\([\"'][\w-]+[\"']\)", line)):
-                arg = line.split('.')
+            elif re.match(r"\w+\.show\((.+?)\)", line):
+                arg = re.findall(r"[\w-]+", line)
                 class_name = arg[0]
-                uid = arg[1].split('"')[1]
+                uid = arg[2]
                 name_id = "{} {}".format(class_name, uid)
                 self.do_show(name_id)
-            elif bool(re.match(r"\w+\.destroy\(\"[\w-]+\"\)", line)):
-                arg = line.split('.')
+            elif re.match(r"\w+\.destroy\((.+?)\)", line):
+                arg = re.findall(r"[\w-]+", line)
                 class_name = arg[0]
-                uid = arg[1].split('"')[1]
+                uid = arg[2]
                 name_id = "{} {}".format(class_name, uid)
                 self.do_destroy(name_id)
+            elif re.match(r"\w+\.update\((.+?), (.+?), (.+?)\)", line):
+                match = re.findall(r"[\w-]+", line)
+                class_name = match[0]
+                _id = match[2]
+                attr_name = match[3]
+                attr_value = match[4]
+                line = "{} {} {} {}".format(class_name, _id, attr_name,
+                                            attr_value)
+                self.do_update(line)
 
     def do_create(self, line):
         """create new instance of BaseModel, saves it(to the JSON file)
