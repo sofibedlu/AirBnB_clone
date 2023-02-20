@@ -93,6 +93,7 @@ div.locations:hover ul{
         position: absolute;
         top: 100%;
         left: 0;
+	z-index: 1;
 }
 
 div.amenities:hover ul {
@@ -100,4 +101,5 @@ div.amenities:hover ul {
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 1;
 }
